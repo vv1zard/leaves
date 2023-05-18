@@ -352,7 +352,7 @@ func LGEnsembleFromReader(reader *bufio.Reader, loadTransformation bool) (*Ensem
 	if loadTransformation && !e.averageOutput {
 		objectiveStr, err := params.ToString("objective")
 		if err != nil {
-			return nil, err
+			objectiveStr = "custom"
 		}
 		if !strings.HasPrefix(objectiveStr, "regression") { // no transformation for regression
 			objectiveStruct, err := lgObjectiveParse(objectiveStr)
